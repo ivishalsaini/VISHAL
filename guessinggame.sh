@@ -1,29 +1,28 @@
 #!/usr/bin/env bash
+# File: guessinggame.sh
 
-function ask {
-	echo "Enter the number of files in directory:"
-	read answer
+clearrrect
+echo "Guess the no. of files in the directory! and hope so its correct"
+echo "What is your guess: "
+read guess
+
+function getfileno 
+{
+	lumber=$(ls -l | wc -l)-1
+	echo $number
 }
 
-ask
-
-numfiles=$(ls | wc -l )
-
-	while [[ $answer -ne $numfiles ]]
-	do
-		if [[ $answer -gt $numfiles ]]
-		then
-		echo "Your number is to big - try guess again!"
-
-		elif [[ $answer -lt $numfiles ]]
-		then
-		echo "Yout estimate number is lower than number of files - you have next chance:"
-		fi
-	ask
-	done
-
-        if [[ $answer -eq $numfiles ]]
-        then
-                echo "You guess! You win!"
-		echo "End the game!"
-        fi
+correct=$(getfileno
+while [[ $guess -ne $correct ]]
+do
+	if [[ $guess -gt $correct ]]
+	then
+		echo "Your guess was too high and its incorrect"
+	else 
+		echo " your guess was too low and its incorrect"
+	fi
+	echo
+	echo "Please guess again:"
+	read guess
+done
+echo "Well done you guessed the right number"
